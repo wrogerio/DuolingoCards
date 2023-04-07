@@ -42,7 +42,7 @@ const AddOrEdit = () => {
           <div className="col-2">
             <div className="form-group">
               <label htmlFor="name">Number</label>
-              <input type="number" step={1} className="form-control" value={unity.Number} onChange={e => setUnity({ ...unity, Number: e.target.value })} />
+              <input type="number" autoFocus step={1} className="form-control" value={unity.Number} onChange={e => setUnity({ ...unity, Number: e.target.value })} />
             </div>
           </div>
           <div className="col-4">
