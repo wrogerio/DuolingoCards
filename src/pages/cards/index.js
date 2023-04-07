@@ -50,7 +50,7 @@ const Cards = () => {
           <div className="form-group">
             <label htmlFor="selectCard">Select the Unity</label>
             <select className="form-control" autoFocus onChange={e => setUnity(e.target.value)}>
-              <option value="">Todos</option>
+              <option value="">Selecione</option>
               {unities.map((unity, index) => (
                 <option key={index} value={unity.Id}>{unity.Name}</option>
               ))}
