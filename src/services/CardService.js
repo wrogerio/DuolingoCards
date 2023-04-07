@@ -38,7 +38,7 @@ export const SaveItem = async (item) => {
     return data;
   }
   else {
-    const response = await fetch(`/api/cads`, {
+    const response = await fetch(`/api/cards`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

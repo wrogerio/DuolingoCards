@@ -17,7 +17,7 @@ const Cards = () => {
   const handleRemove = (id) => {
     if (!confirm("Deseja realmente remover este item?")) return;
     RemoveItem(id).then(data => {
-      GetAll().then(data => {
+      GetAll(unity).then(data => {
         setCards(data);
       })
     })
@@ -65,8 +65,8 @@ const Cards = () => {
             <thead>
               <tr>
                 <th>Phrase</th>
-                <th>Translate</th>
-                <th>IPA</th>
+                <th className="d-none d-md-table-cell">Translate</th>
+                <th className="d-none d-md-table-cell">IPA</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -74,8 +74,8 @@ const Cards = () => {
               {Array.isArray(cards) && cards.map((card, index) => (
                 <tr key={index} data-search={`${card.Phrase}-${card.Translate}-${card.IPA}`}>
                   <td>{card.Phrase}</td>
-                  <td>{card.Translate}</td>
-                  <td>{card.IPA}</td>
+                  <td className="d-none d-md-table-cell">{card.Translate}</td>
+                  <td className="d-none d-md-table-cell">{card.IPA}</td>
                   <td>
                     <Link href={`/${urlRoot}/add-or-edit/${card.Id}`} >
                       <i className="fas fa-edit me-2"></i>

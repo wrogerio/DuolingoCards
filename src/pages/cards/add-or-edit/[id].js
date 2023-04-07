@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 // user
 import HeaderPage from "@/components/HeaderPage";
 import { toFirstLetterUpperCase } from "@/helper/util";
-import { GetItem, SaveItem } from '@/services/UnityService';
+import { GetItem, SaveItem } from '@/services/CardService';
 import { GetAll } from '@/services/UnityService';
 
 const AddOrEdit = () => {
@@ -14,17 +14,16 @@ const AddOrEdit = () => {
   const [unity, setUnities] = useState([]);
 
   const handleSubmit = (event) => {
-    // const form = event.currentTarget;
-    // event.preventDefault();
+    const form = event.currentTarget;
+    event.preventDefault();
 
-    // if (form.checkValidity() !== false) {
-    //   SaveItem({ ...unity }
-    //   ).then((result) => {
-    //     if (result) router.push(`/${urlRoot}`);
-    //     else console.log("Erro ao salvar");
-    //   })
-    // }
-    //setValidated(true);
+    if (form.checkValidity() !== false) {
+      SaveItem({ ...card }
+      ).then((result) => {
+        if (result) router.push(`/${urlRoot}`);
+        else console.log("Erro ao salvar");
+      })
+    }
   };
 
   useEffect(() => {

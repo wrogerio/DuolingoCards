@@ -40,7 +40,7 @@ const Unities = () => {
               <tr>
                 <th>Number</th>
                 <th>Name</th>
-                <th>Description</th>
+                <th className="d-none d-lg-table-cell">Description</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -49,7 +49,7 @@ const Unities = () => {
                 <tr key={index} data-search={`${unity.Number}-${unity.Name}-${unity.Description}`}>
                   <td>{unity.Number}</td>
                   <td>{unity.Name}</td>
-                  <td>{unity.Description}</td>
+                  <td className="d-none d-lg-table-cell">{unity.Description}</td>
                   <td>
                     <Link href={`/${urlRoot}/add-or-edit/${unity.Id}`} >
                       <i className="fas fa-edit me-2"></i>

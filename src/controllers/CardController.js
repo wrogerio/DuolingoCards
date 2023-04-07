@@ -46,9 +46,10 @@ export const UpdateItem = async (item) => {
   const query = ` UPDATE DuoCards SET 
                   UnityId = '${item.UnityId}', 
                   Phrase = '${item.Phrase}', 
-                  Translate = '${item.Translate}'
+                  Translate = '${item.Translate}',
                   IPA = '${item.IPA}'
                   WHERE Id = '${item.Id}'`;
+  console.log(query)
   try {
     await pool.connect();
     await pool.request().query(query);

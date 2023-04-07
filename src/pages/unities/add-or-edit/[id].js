@@ -39,22 +39,22 @@ const AddOrEdit = () => {
       <HeaderPage title={toFirstLetterUpperCase(urlRoot)} pageType="cadastrar" accessKey="v" textBt="Voltar" iconBt="fas fa-plus-circle me-2"></HeaderPage>
       <form onSubmit={handleSubmit}>
         <div className="row mb-2">
-          <div className="col-2">
+          <div className="col-12 col-md-2">
             <div className="form-group">
               <label htmlFor="name">Number</label>
               <input type="number" autoFocus step={1} className="form-control" value={unity.Number} onChange={e => setUnity({ ...unity, Number: e.target.value })} />
             </div>
           </div>
-          <div className="col-4">
+          <div className="col-12 col-md-4">
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input type="text" className="form-control" value={unity.Name} onChange={e => setUnity({ ...unity, Name: e.target.value })} />
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             <div className="form-group">
               <label htmlFor="name">Description</label>
-              <input type="text" className="form-control" value={unity.Description} onChange={e => setUnity({ ...unity, Description: e.target.value })} />
+              <textarea type="text" className="form-control" value={unity.Description} onChange={e => setUnity({ ...unity, Description: e.target.value })} rows={3}></textarea>
             </div>
           </div>
         </div>
