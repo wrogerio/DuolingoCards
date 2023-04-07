@@ -4,6 +4,10 @@ body {
 	font-family: "Poppins", sans-serif !important;
 }
 
+.headerPageBg {
+	background-color: #efefef !important;
+}
+
 th:last-child {
 	width: 90px !important;
 }

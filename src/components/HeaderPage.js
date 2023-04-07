@@ -13,25 +13,25 @@ const HeaderPage = (props) => {
   switch (pageType) {
     case "cadastrar":
       buttomClass = "btn btn-sm btn-outline-primary";
-      titleFormat = "mb-2 text-primary";
+      titleFormat = "m-0 text-primary";
       totalFormat = "d-none d-md-block d-none mb-2 text-primary";
       linkToGo = "/" + title.toLowerCase() + "/"
       break;
     case "index":
       buttomClass = "btn btn-sm btn-outline-primary";
-      titleFormat = "mb-2 text-primary";
+      titleFormat = "m-0 text-primary";
       totalFormat = "d-none d-md-block mb-2 text-primary";
       linkToGo = "/" + title.toLowerCase() + "/add-or-edit/0"
       break;
     case "remover":
       buttomClass = "btn btn-sm btn-outline-danger";
-      titleFormat = "mb-2 text-danger";
+      titleFormat = "m-0 text-danger";
       totalFormat = "d-none d-md-block mb-2 text-danger";
       linkToGo = "/" + title.toLowerCase() + "/"
       break;
     case "alterar":
       buttomClass = "btn btn-sm btn-outline-warning";
-      titleFormat = "mb-2 text-warning";
+      titleFormat = "m-0 text-warning";
       totalFormat = "d-none d-md-block mb-2 text-warning";
       linkToGo = "/" + title.toLowerCase() + "/"
       break;

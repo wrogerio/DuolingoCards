@@ -2,20 +2,26 @@ import { useEffect, useState } from "react";
 // components
 import HeaderPage from "@/components/HeaderPage";
 import { toFirstLetterUpperCase } from "@/helper/util";
-import { GetAll } from "@/services/UnityService";
+import { GetAll, RemoveItem } from "@/services/UnityService";
+import Link from "next/link";
 
 const Unities = () => {
   const urlRoot = "unities";
   const [unities, setUnities] = useState([]);
 
+  const handleRemove = (id) => {
+    if (!confirm("Deseja realmente remover este item?")) return;
+    RemoveItem(id).then(data => {
+      GetAll().then(data => {
+        setUnities(data);
+      })
+    })
+  }
+
   useEffect(() => {
-    const getUnities = async () => {
-      const unities = await GetAll();
-      setUnities(unities);
-    };
-
-    getUnities();
-
+    GetAll().then(data => {
+      setUnities(data);
+    })
   }, [])
 
   return (
@@ -39,12 +45,12 @@ const Unities = () => {
                   <td>{unity.Name}</td>
                   <td>{unity.Description}</td>
                   <td>
-                    <button className="btn btn-sm btn-primary me-2">
-                      <i className="fas fa-edit"></i>
-                    </button>
-                    <button className="btn btn-sm btn-danger">
-                      <i className="fas fa-trash"></i>
-                    </button>
+                    <Link href={`/${urlRoot}/add-or-edit/${unity.Id}`} >
+                      <i className="fas fa-edit me-2"></i>
+                    </Link>
+                    <span className="text-danger" onClick={e => handleRemove(unity.Id.toLowerCase())}>
+                      <i className="fas fa-trash-alt"></i>
+                    </span>
                   </td>
                 </tr>
               ))}
