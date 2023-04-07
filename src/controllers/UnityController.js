@@ -8,7 +8,6 @@ export const GetAll = async () => {
   try {
     await pool.connect();
     const result = await pool.request().query(query);
-    console.log(result.recordset);
     return result.recordset.length > 0 ? result.recordset : [];
   } catch (error) {
     return { error: error.message };
@@ -23,7 +22,6 @@ export const GetItem = async (id) => {
   try {
     await pool.connect();
     const result = await pool.request().query(query);
-    console.log(result.recordset);
     return result.recordset.length > 0 ? result.recordset[0] : [];
   } catch (error) {
     return { error: error.message };

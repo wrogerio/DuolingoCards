@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 // components
 import HeaderPage from "@/components/HeaderPage";
-import { toFirstLetterUpperCase } from "@/helper/util";
+import { handleSearch, toFirstLetterUpperCase } from "@/helper/util";
 import { GetAll, RemoveItem } from "@/services/UnityService";
 import Link from "next/link";
 
 const Unities = () => {
   const urlRoot = "unities";
   const [unities, setUnities] = useState([]);
+  const [termo, setTermo] = useState("");
 
   const handleRemove = (id) => {
     if (!confirm("Deseja realmente remover este item?")) return;
@@ -24,11 +25,16 @@ const Unities = () => {
     })
   }, [])
 
+  useEffect(() => {
+    handleSearch(termo.toLocaleLowerCase());
+  }, [termo])
+
   return (
     <>
       <HeaderPage title={toFirstLetterUpperCase(urlRoot)} lenght={unities.length} pageType="index" accessKey="c" textBt="Cadastrar" iconBt="fas fa-plus-circle me-2"></HeaderPage>
       <div className="row">
         <div className="col">
+          <input type="text" className="form-control" placeholder="Pesquisar" value={termo} onChange={e => setTermo(e.target.value)} />
           <table className="table table-sm table-bordered">
             <thead>
               <tr>
@@ -40,7 +46,7 @@ const Unities = () => {
             </thead>
             <tbody>
               {unities.map((unity, index) => (
-                <tr key={index}>
+                <tr key={index} data-search={`${unity.Number}-${unity.Name}-${unity.Description}`}>
                   <td>{unity.Number}</td>
                   <td>{unity.Name}</td>
                   <td>{unity.Description}</td>

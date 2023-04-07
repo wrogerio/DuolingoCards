@@ -37,9 +37,6 @@ const AddOrEdit = () => {
   return (
     <>
       <HeaderPage title={toFirstLetterUpperCase(urlRoot)} pageType="cadastrar" accessKey="v" textBt="Voltar" iconBt="fas fa-plus-circle me-2"></HeaderPage>
-      <pre>
-        {JSON.stringify(unity, null, 2)}
-      </pre>
       <form onSubmit={handleSubmit}>
         <div className="row mb-2">
           <div className="col-2">
@@ -68,11 +65,6 @@ const AddOrEdit = () => {
                 <i className="fas fa-save me-2"></i>
                 Salvar
               </button>
-
-              <Link href={`/${urlRoot}`} className='btn btn-secondary'>
-                <i className="fas fa-times-circle me-2"></i>
-                Home
-              </Link>
             </div>
           </div>
         </div>
