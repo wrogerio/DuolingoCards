@@ -45,9 +45,9 @@ export const SaveItem = async (item) => {
 export const UpdateItem = async (item) => {
   const query = ` UPDATE DuoCards SET 
                   UnityId = '${item.UnityId}', 
-                  Phrase = N'${item.Phrase.replace(/'/g, "''")}', 
-                  Translate = N'${item.Translate.replace(/'/g, "''")}',
-                  IPA = N'${item.IPA.replace(/'/g, "''")}'
+                  Phrase = N'${item.Phrase.replace(/'/g, "''").trim()}', 
+                  Translate = N'${item.Translate.replace(/'/g, "''").trim()}',
+                  IPA = N'${item.IPA.replace(/'/g, "''").trim()}'
                   WHERE Id = '${item.Id}'`;
   try {
     await pool.connect();
