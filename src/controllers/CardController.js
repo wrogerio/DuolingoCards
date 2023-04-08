@@ -32,7 +32,7 @@ export const GetItem = async (id) => {
 
 export const SaveItem = async (item) => {
   const query = ` INSERT INTO DuoCards (UnityId, Phrase, Translate, IPA) 
-                  VALUES ('${item.UnityId}', '${item.Phrase}', '${item.Translate}', '${item.IPA}')`;
+                  VALUES ('${item.UnityId}', '${item.Phrase}', '${item.Translate}', N'${item.IPA}')`;
   try {
     await pool.connect();
     await pool.request().query(query);
@@ -47,9 +47,8 @@ export const UpdateItem = async (item) => {
                   UnityId = '${item.UnityId}', 
                   Phrase = '${item.Phrase}', 
                   Translate = '${item.Translate}',
-                  IPA = '${item.IPA}'
+                  IPA = N'${item.IPA}'
                   WHERE Id = '${item.Id}'`;
-  console.log(query)
   try {
     await pool.connect();
     await pool.request().query(query);
